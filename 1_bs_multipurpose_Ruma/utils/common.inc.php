@@ -8,10 +8,7 @@
             $modelClass = $model_name;
 
             if (!method_exists($modelClass, $function)){
-              $message = $function . ' function not found in Model ' . $model_name;
-              $arrData = $message;
-              require_once 'view/inc/404.php';
-              die();
+              throw new Exception();
             }
 
             $obj = $modelClass::getInstance();
@@ -20,10 +17,7 @@
                 return $obj->$function($arrArgument);
             }
         } else {
-          $message = "Model Not Found under Model Folder";
-          $arrData = $message;
-          require_once 'view/inc/404.php';
-          die();
+            throw new Exception();
         }
     }
 
@@ -36,11 +30,13 @@
     				$arrData = $arrPassValue;
     			include_once($view_path);
     		} else {
+          $log = Log::getInstance();
+          $log->add_log_general("error loadView general", $_GET['module'], "response ".http_response_code()); //$text, $controller, $function
+          $log->add_log_user("error loadView general", "", $_GET['module'], "response ".http_response_code());//$msg, $username = "", $controller, $function
     			//die($templateName . ' Template Not Found under View Folder');
 
-    			$message = "NO TEMPLATE FOUND";
-    			$arrData = $message;
-    			require_once 'view/inc/404.php';
-    			die();
+          $result = response_code(http_response_code());
+			    $arrData = $result;
+			    require_once $_SERVER['DOCUMENT_ROOT'].'/php/marvelArte_ORM_3/1_bs_multipurpose_Ruma/view/inc/templates_error/'. "error" .'.php';
     		}
     	}
