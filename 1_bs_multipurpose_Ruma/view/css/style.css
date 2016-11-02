@@ -279,6 +279,15 @@ border: 1px solid #e1e1e1;
     height: 70%;
 }
 
+.prod {
+    display:inline-block;
+    margin: 8px;
+    margin-bottom: 5px;
+    width: 350px;
+    height: 350px;
+    text-align: left;
+}
+
 #prod {
     display:inline-block;
     margin: 8px;

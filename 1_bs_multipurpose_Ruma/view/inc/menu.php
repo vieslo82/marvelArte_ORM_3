@@ -14,8 +14,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.php?module=main">HOME</a></li>
                     <li><a href="index.php?module=products&view=create_products">PRODUCTS</a></li>
-                    <!--LISTAR entra al controladorr</a>-->
-                    <li><a href="index.php?module=listar">LISTAR</a></li>
+                    <li><a href="index.php?module=products_front_end&view=list_products_FE">LISTAR</a></li>
                     <li><a href="index.php?module=pricing">PRICING</a></li>
                     <li><a href="index.php?module=services">SERVICES</a></li>
                     <li><a href="index.php?module=portfolio">PORTFOLIO</a></li>
